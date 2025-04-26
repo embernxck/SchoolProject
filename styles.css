@@ -643,14 +643,14 @@ main {
 #footer {
     background-color: #01070A;
     color: var(--text-light);
-    padding: 25px 0 5px;
+    padding: 60px 0 20px;
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 .footer-section {
@@ -658,18 +658,18 @@ main {
 }
 
 .footer-section .logo {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .footer-section p {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     opacity: 0.8;
 }
 
 .footer-section h3 {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     position: relative;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .footer-section h3::after {
@@ -677,7 +677,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 30px;
+    width: 40px;
     height: 2px;
     background-color: var(--primary-light);
 }
@@ -699,8 +699,8 @@ main {
 
 .social-icons {
     display: flex;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 .social-icons a {
@@ -726,7 +726,7 @@ main {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 5px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -938,13 +938,36 @@ main {
         font-size: 1.2rem;
     }
 
+    #footer {
+        padding: 25px 0 5px;
+    }
+    
     .footer-content {
         flex-direction: column;
         gap: 5px;
+        margin-bottom: 10px;
     }
 
     .footer-section {
         margin-bottom: 5px;
+    }
+    
+    .footer-section p {
+        margin-bottom: 5px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 8px;
+        padding-bottom: 5px;
+    }
+    
+    .footer-section h3::after {
+        width: 30px;
+    }
+    
+    .social-icons {
+        gap: 10px;
+        margin-top: 8px;
     }
     
     .social-icons a {
@@ -955,7 +978,11 @@ main {
     .social-icons a i {
         font-size: 1.6rem;
     }
-
+    
+    .footer-bottom {
+        padding-top: 5px;
+    }
+    
     .schedule-selectors {
         flex-direction: column;
         align-items: center;
