@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа №74</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Эта функция выполняется до загрузки основного скрипта, чтобы разблокировать селектор букв
+        window.addEventListener('DOMContentLoaded', function() {
+            // Проверяем, есть ли выбранный номер класса
+            const classNumberSelect = document.getElementById('class-number');
+            const classLetterSelect = document.getElementById('class-letter');
+            
+            if (classNumberSelect && classLetterSelect && classNumberSelect.value) {
+                // Если номер класса уже выбран (через selected в HTML), 
+                // разблокируем выбор буквы класса
+                classLetterSelect.disabled = false;
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="logo-text">
+                    <h1>Школа №74</h1>
+                </div>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="nav-links" aria-hidden="true">
+                    <li><a href="#home" class="nav-link">Главная</a></li>
+                    <li><a href="#news" class="nav-link">Новости</a></li>
+                    <li><a href="#schedule" class="nav-link">Расписание</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="container">
+                <div class="hero">
+                    <h2>Добро пожаловать в МБОУ СОШ 74!</h2>
+                    <p>Мы создаем поддерживающую и стимулирующую среду, где ученики могут раскрыть свой потенциал и достичь академических успехов.</p>
+                    <a href="#contact" class="btn btn-primary">Связаться с нами</a>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Качественное образование</h3>
+                        <p>Профессиональные педагоги с современными методиками обучения</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Дружный коллектив</h3>
+                        <p>Внимательное отношение к каждому ученику в нашей школе</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Всестороннее развитие</h3>
+                        <p>Разнообразные кружки и секции для творческого роста</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section bg-light news-section-spaced">
+            <div class="container">
+                <h2 class="section-title">Новости</h2>
+                
+                <div class="news-container" id="news-container">
+                    <!-- News items will be dynamically populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="section">
+            <div class="container">
+                <h2 class="section-title">Расписание</h2>
+                
+                <p class="schedule-instruction">Для просмотра расписания выберите класс</p>
+                
+                <div class="schedule-selectors">
+                    <div class="class-selector">
+                        <label for="class-number">Номер класса</label>
+                        <select id="class-number">
+                            <option value="" disabled>Выберите...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>
+                    </div>
+                    
+                    <div class="class-selector">
+                        <label for="class-letter">Буква класса</label>
+                        <select id="class-letter" disabled>
+                            <option value="" selected disabled>Сначала выберите номер класса</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="schedule-container" id="schedule-container">
+                    <!-- Пример расписания, будет динамически обновляться -->
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-card-day">Понедельник</div>
+                            <div class="schedule-card-class">5А класс</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">8:30 - 9:15</div>
+                            <div class="schedule-card-subject">Математика</div>
+                            <div class="schedule-card-teacher">Иванова А.П.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">9:25 - 10:10</div>
+                            <div class="schedule-card-subject">Русский язык</div>
+                            <div class="schedule-card-teacher">Петрова Т.С.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">10:20 - 11:05</div>
+                            <div class="schedule-card-subject">История</div>
+                            <div class="schedule-card-teacher">Сидоров В.И.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-card-day">Вторник</div>
+                            <div class="schedule-card-class">5А класс</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">8:30 - 9:15</div>
+                            <div class="schedule-card-subject">Литература</div>
+                            <div class="schedule-card-teacher">Петрова Т.С.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">9:25 - 10:10</div>
+                            <div class="schedule-card-subject">Иностранный язык</div>
+                            <div class="schedule-card-teacher">Кузнецова Л.А.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">10:20 - 11:05</div>
+                            <div class="schedule-card-subject">Физкультура</div>
+                            <div class="schedule-card-teacher">Соколов А.В.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-card-header">
+                            <div class="schedule-card-day">Среда</div>
+                            <div class="schedule-card-class">5А класс</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">8:30 - 9:15</div>
+                            <div class="schedule-card-subject">Математика</div>
+                            <div class="schedule-card-teacher">Иванова А.П.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">9:25 - 10:10</div>
+                            <div class="schedule-card-subject">Биология</div>
+                            <div class="schedule-card-teacher">Николаева Е.С.</div>
+                        </div>
+                        <div class="schedule-card-item">
+                            <div class="schedule-card-time">10:20 - 11:05</div>
+                            <div class="schedule-card-subject">География</div>
+                            <div class="schedule-card-teacher">Морозов Д.И.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Адрес</h3>
+                                <p>690021, г. Владивосток, ул. Харьковская, 7</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>+7 (423) 227-46-34</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>school74@vlc.ru</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Режим работы</h3>
+                                <p>Пн-Пт: 8:00 - 18:00</p>
+                                <p>Сб: 8:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Обратная связь</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Тема</label>
+                                <input type="text" id="subject" name="subject" required>
+                                <span class="error-message" id="subject-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message" id="message-error"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <h3 class="map-title">
+                        <i class="fas fa-map-marker-alt map-title-icon"></i>
+                        Наше местоположение
+                    </h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1452.4806558542156!2d131.8823561408186!3d43.111664770756095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5fb39cae3ab123e3%3A0x9b4ad331f31c35ae!2z0KXQsNGA0YzQutC-0LLRgdC60LDRjyDRg9C7LiwgNywg0JLQu9Cw0LTQuNCy0L7RgdGC0L7Quiwg0J_RgNC40LzQvtGA0YHQutC40Lkg0LrRgNCw0LksINCg0L7RgdGB0LjRjywgNjkwMDIx!5e1!3m2!1sru!2sru!4v1682526975024!5m2!1sru!2sru" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Владивосток, ул. Харьковская, 7</p>
+                    <p><i class="fas fa-phone"></i> +7 (423) 227-46-34</p>
+                    <p><i class="fas fa-envelope"></i> school74@vlc.ru</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Школьный сайт. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal for Contact Form -->
+    <div id="success-modal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h3>Сообщение отправлено!</h3>
+                    <p>Спасибо за ваше обращение. Мы свяжемся с вами в ближайшее время.</p>
+                    <button class="btn btn-primary" id="success-modal-btn">ОК</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
